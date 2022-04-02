@@ -82,10 +82,9 @@ public class Computer {
                                         .collect(Collectors
                                         .joining(", ")) + "\n" +
                 "   Screen = " + getScreenList().stream()
-                                        .map(Device::getName)
-                                        .collect(Collectors
-                                        .joining(", ")) + "\n" +
-                "   Storage list = " + getStorageList() .stream()
+                                                .map(Device::getName).filter(x -> x.equals("PhillipsScreen"))
+                                                .collect(Collectors.joining(", ")) + "\n" +
+                "   Storage list = " + getStorageList().stream()
                                         .map(Device::getName)
                                         .collect(Collectors
                                         .joining(", ")) + "\n" +
