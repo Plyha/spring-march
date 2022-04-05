@@ -22,13 +22,14 @@ CREATE TABLE role (
 );
 
 CREATE TABLE user_role (
-    user_id bigserial PRIMARY KEY,
-    role_id bigserial PRIMARY KEY
+    user_id bigint REFERENCES "user"(user_id) ON DELETE CASCADE,
+    role_id bigint REFERENCES role(role_id) ON DELETE CASCADE,
+    PRIMARY KEY (user_id, role_id)
 );
 
 CREATE TABLE post (
     post_id bigserial PRIMARY KEY,
---    user_id biginteger
+    user_id bigint,
     title varchar(100) NOT NULL,
     content text NOT NULL,
     dt_created timestamp NOT NULL,
@@ -49,7 +50,7 @@ CREATE TABLE post_tag (
 
 CREATE TABLE comment (
     comment_id bigserial PRIMARY KEY,
---    user_id biginteger
+    user_id bigint,
     post_id bigint REFERENCES post(post_id) ON DELETE CASCADE,
     content text,
     dt_created timestamp NOT NULL,

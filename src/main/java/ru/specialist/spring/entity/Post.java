@@ -19,6 +19,18 @@ public class Post {
     @OneToMany(mappedBy = "post")
     private List<Comment> comments;
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User  user;
+
     @ManyToMany
     @JoinTable(
           name = "post_tag",
