@@ -2,12 +2,29 @@ DROP TABLE IF EXISTS comment;
 DROP TABLE IF EXISTS post_tag;
 DROP TABLE IF EXISTS tag;
 DROP TABLE IF EXISTS post;
+DROP TABLE IF EXISTS user_role;
+DROP TABLE IF EXISTS role;
+DROP TABLE IF EXISTS "user";
 
---TODO
---DROP TABLE IF EXISTS user_role;
---DROP TABLE IF EXISTS role;
---DROP TABLE IF EXISTS "user";
+CREATE TABLE "user" (
+    user_id bigserial PRIMARY KEY,
+    username varchar(20) NOT NULL,
+    password varchar(20) NOT NULL,
+    first_name varchar(20) NOT NULL,
+    last_name varchar(20) NOT NULL,
+    dt_created timestamp NOT NULL,
+    dt_updated timestamp
+);
 
+CREATE TABLE role (
+    role_id bigserial PRIMARY KEY,
+    role_name varchar(20) NOT NULL
+);
+
+CREATE TABLE user_role (
+    user_id bigserial PRIMARY KEY,
+    role_id bigserial PRIMARY KEY
+);
 
 CREATE TABLE post (
     post_id bigserial PRIMARY KEY,

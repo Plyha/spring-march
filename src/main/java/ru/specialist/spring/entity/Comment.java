@@ -13,6 +13,18 @@ public class Comment {
 
     private String content;
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
     @ManyToOne
     @JoinColumn(name = "post_id")
     private Post post;
