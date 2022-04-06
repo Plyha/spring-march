@@ -103,3 +103,6 @@ insert into comment (post_id, content, dt_created)
     values (3, 'Disgusting!', current_timestamp);
 insert into comment (post_id, content, dt_created)
     values (3, 'Atrocious!', current_timestamp);
+
+insert into "user"(username, password, first_name, last_name, dt_created, dt_updated)
+    values ('test1', 'pass','oleg','pushkarev',current_timestamp, null)
