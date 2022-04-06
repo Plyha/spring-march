@@ -105,4 +105,16 @@ insert into comment (post_id, content, dt_created)
     values (3, 'Atrocious!', current_timestamp);
 
 insert into "user"(username, password, first_name, last_name, dt_created, dt_updated)
-    values ('test1', 'pass','oleg','pushkarev',current_timestamp, null)
+    values ('test1', 'pass','oleg','pushkarev',current_timestamp, null);
+
+insert into "user"(username, password, first_name, last_name, dt_created, dt_updated)
+    values ('test2', 'pass1','mikhail','levin',current_timestamp, null);
+
+insert into role(role_name) values ('User');
+insert into role(role_name) values ('Moderator');
+insert into role(role_name) values ('Super Moderator');
+insert into role(role_name) values ('Administrator');
+insert into role(role_name) values ('Owner');
+
+insert into user_role(user_id, role_id) values (1,1);
+insert into user_role(user_id, role_id) values (2,5);

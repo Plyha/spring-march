@@ -1,7 +1,6 @@
 package ru.specialist.spring.entity;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -12,7 +11,8 @@ public class Role {
     @Column(name = "role_id")
     private Long roleId;
 
-    private String name;
+    @Column(name = "role_name")
+    private String roleName;
 
     @ManyToMany(mappedBy = "roles")
     private List<User> users;
@@ -26,16 +26,14 @@ public class Role {
     }
 
     public String getName() {
-        return name;
+        return roleName;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.roleName = name;
     }
 
-    public List<User> getUsers() {
-        return users;
-    }
+    public List<User> getUsers() {return users;}
 
     public void setUsers(List<User> users) {
         this.users = users;

@@ -33,7 +33,7 @@ public class UserRepositoryTest {
     @Test
     public void getAll(){
         List<User> result = userRepository.findAll();
-        assertEquals(1, result.size());
+        assertEquals(2, result.size());
     }
 
     @Test
@@ -46,8 +46,8 @@ public class UserRepositoryTest {
         user.setDtCreated(LocalDateTime.now());
 
         userRepository.save(user);
-        assertEquals(2, userRepository.count());
-        assertEquals("ilya", userRepository.findById(2L).orElseThrow().getUsername());
+        assertEquals(3, userRepository.count());
+        assertEquals("ilya", userRepository.findById(3L).orElseThrow().getUsername());
     }
 
     @Test
@@ -56,7 +56,7 @@ public class UserRepositoryTest {
         user.setUsername("ilya");
 
         userRepository.save(user);
-        assertEquals(1, userRepository.count());
+        assertEquals(2, userRepository.count());
         assertEquals("ilya", userRepository.findById(1L).orElseThrow().getUsername());
 //        assertNotNull(postRepository.findById(1L).orElseThrow().getDtUpdated());
     }
@@ -64,7 +64,7 @@ public class UserRepositoryTest {
     @Test
     void delete(){
         userRepository.deleteById(1L);
-        assertEquals(0, userRepository.count());
+        assertEquals(1, userRepository.count());
     }
 
 }
