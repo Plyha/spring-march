@@ -74,5 +74,12 @@ public class PostRepositoryTest {
         assertEquals(3, post.getComments().size());
     }
 
+    @Test
+
+    void findByContentContainingIngoreCase(){
+        List<Post> posts = postRepository.findByContentContainingIgnoreCase("ALL");
+        assertEquals(3, posts.size());
+    }
+
 
 }

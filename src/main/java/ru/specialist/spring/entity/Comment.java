@@ -1,8 +1,13 @@
 package ru.specialist.spring.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+@Getter
+@Setter
 @Entity
 public class Comment {
 
@@ -12,14 +17,6 @@ public class Comment {
     private Long commentId;
 
     private String content;
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -35,43 +32,4 @@ public class Comment {
     @Column(name = "dt_updated")
     private LocalDateTime dtUpdated;
 
-    public Long getCommentId() {
-        return commentId;
-    }
-
-    public void setCommentId(Long commentId) {
-        this.commentId = commentId;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public Post getPost() {
-        return post;
-    }
-
-    public void setPost(Post post) {
-        this.post = post;
-    }
-
-    public LocalDateTime getDtCreated() {
-        return dtCreated;
-    }
-
-    public void setDtCreated(LocalDateTime dtCreated) {
-        this.dtCreated = dtCreated;
-    }
-
-    public LocalDateTime getDtUpdated() {
-        return dtUpdated;
-    }
-
-    public void setDtUpdated(LocalDateTime dtUpdated) {
-        this.dtUpdated = dtUpdated;
-    }
 }

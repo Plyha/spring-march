@@ -1,8 +1,13 @@
 package ru.specialist.spring.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.List;
 
+@Getter
+@Setter
 @Entity
 public class Role {
 
@@ -17,25 +22,4 @@ public class Role {
     @ManyToMany(mappedBy = "roles")
     private List<User> users;
 
-    public Long getRoleId() {
-        return roleId;
-    }
-
-    public void setRoleId(Long roleId) {
-        this.roleId = roleId;
-    }
-
-    public String getName() {
-        return roleName;
-    }
-
-    public void setName(String name) {
-        this.roleName = name;
-    }
-
-    public List<User> getUsers() {return users;}
-
-    public void setUsers(List<User> users) {
-        this.users = users;
-    }
 }

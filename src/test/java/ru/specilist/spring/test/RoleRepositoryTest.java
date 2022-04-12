@@ -39,21 +39,21 @@ public class RoleRepositoryTest {
     @Test
     public void create(){
         Role role = new Role();
-        role.setName("Test123");
+        role.setRoleName("Test123");
 
         roleRepository.save(role);
         assertEquals(6, roleRepository.count());
-        assertEquals("Test123", roleRepository.findById(6L).orElseThrow().getName());
+        assertEquals("Test123", roleRepository.findById(6L).orElseThrow().getRoleName());
     }
 
     @Test
     public void update(){
         Role role = roleRepository.findById(1L).orElseThrow();
-        role.setName("Test1234");
+        role.setRoleName("Test1234");
 
         roleRepository.save(role);
         assertEquals(5, roleRepository.count());
-        assertEquals("Test1234", roleRepository.findById(1L).orElseThrow().getName());
+        assertEquals("Test1234", roleRepository.findById(1L).orElseThrow().getRoleName());
 //        assertNotNull(postRepository.findById(1L).orElseThrow().getDtUpdated());
     }
 

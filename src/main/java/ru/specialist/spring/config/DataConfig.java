@@ -21,7 +21,8 @@ import java.util.Properties;
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories("ru.specialist.spring.dao.repository")
-@ComponentScan("ru.specialist.spring.dao")
+@ComponentScan({"ru.specialist.spring.dao",
+                "ru.specialist.spring.service"})
 public class DataConfig {
 
     public static final String URL = "jdbc:postgresql://localhost:5432/postgres";
